@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+	<licenseUrl>https://github.com/Aplazame/dotnet-sdk/blob/master/LICENSE.md</licenseUrl>
+	<projectUrl>https://github.com/Aplazame/dotnet-sdk</projectUrl>
+	<iconUrl>https://aplazame.com/landing-assets/images/favicon-57.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <copyright>Copyright 2016</copyright>
+    <tags>Aplazame</tags>
+    <dependencies>
+	  <group targetFramework=".NETFramework4.5">
+        <dependency id="Newtonsoft.Json" version="9.0.1" />
+	  </group>
+    </dependencies>
+  </metadata>
+</package>
