@@ -151,7 +151,7 @@ checkout.shipping = shippingInfo;
 In your view you will need to put an snippet similar to this one.
 ```asp
 <script>
-  aplazame.checkout( <%= JsonConvert.SerializeObject(checkout); %> );
+  aplazame.checkout( <%= JsonConvert.SerializeObject(checkout, Formatting.Indented, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }); %> );
 </script>
 ```
 
