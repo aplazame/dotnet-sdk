@@ -157,7 +157,7 @@ In your view you will need to put an snippet similar to this one.
 
 ### API Calls
 
-This assist you for craft a well formatted API request and decode the response back to PHP.
+This assist you for craft a well formatted API request and decode the response back to C# types.
 
 ```cs
 string apiBaseUri = "http://api.aplazame.com";
