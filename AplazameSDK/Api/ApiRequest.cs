@@ -19,7 +19,7 @@ namespace Aplazame.Api
         public static string CreateAcceptHeader(bool useSandbox, int apiVersion, string format)
         {
             var header = "application/vnd.aplazame";
-            if (useSandbox) header += ".Sandbox";
+            if (useSandbox) header += ".sandbox";
             header += $".v{apiVersion}+{format}";
 
             return header;

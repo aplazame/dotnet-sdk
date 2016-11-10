@@ -25,7 +25,7 @@ namespace Aplazame.Api
             return new Dictionary<string, object>()
             {
                 // Description ,[useSandbox, apiVersion, format, expectedHeader]
-                { "with sandbox", new {useSandbox=true, apiVersion=1, format="json", expectedHeader="application/vnd.aplazame.Sandbox.v1+json" } },
+                { "with sandbox", new {useSandbox=true, apiVersion=1, format="json", expectedHeader="application/vnd.aplazame.sandbox.v1+json" } },
                 { "without sandbox", new {useSandbox=false, apiVersion=1, format="json", expectedHeader="application/vnd.aplazame.v1+json" } },
                 { "xml", new {useSandbox=false, apiVersion=1, format="xml", expectedHeader="application/vnd.aplazame.v1+xml" } },
                 { "yaml", new {useSandbox=false, apiVersion=1, format="yaml", expectedHeader="application/vnd.aplazame.v1+yaml" } },
@@ -77,7 +77,7 @@ namespace Aplazame.Api
                     AccessToken = "foo",
                     ExpectedHeaders = new WebHeaderCollection()
                     {
-                        { "Accept", "application/vnd.aplazame.Sandbox.v1+json" },
+                        { "Accept", "application/vnd.aplazame.sandbox.v1+json" },
                         { "Authorization", "Bearer foo" },
                         { "User-Agent", $"Aplazame/{ApiRequest.SdkVersion}, CSharp/{typeof(string).Assembly.ImageRuntimeVersion}" },
                     },
