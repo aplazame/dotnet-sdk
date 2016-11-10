@@ -160,7 +160,7 @@ In your view you will need to put an snippet similar to this one.
 This assist you for craft a well formatted API request and decode the response back to C# types.
 
 ```cs
-string apiBaseUri = "http://api.aplazame.com";
+string apiBaseUri = "https://api.aplazame.com";
 string environment = Aplazame.Api.Client.EnvironmentSandbox; // When you are ready use Aplazame.Api.Client.EnvironmentProduction
 string accessToken = "api private key";
 
