@@ -173,7 +173,7 @@ namespace Aplazame.Api
             if (string.IsNullOrEmpty(method)) throw new ArgumentNullException(nameof(method));
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
 
-            var uri = apiBaseUri + '/' + path.TrimEnd('/') + path;
+            var uri = apiBaseUri + path;
 
             var request = new ApiRequest(useSandbox, accessToken, method, uri, data);
             IResponse response;

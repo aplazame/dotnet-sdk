@@ -14,7 +14,15 @@ namespace Aplazame.Api
         public void SuccessRequest()
         {
             Mock<IClient> httpClientMock = new Mock<IClient>();
-            httpClientMock.Setup(httpClient => httpClient.Send(It.IsAny<IRequest>())).Returns(new Response(200, "{\"foo\": \"value\"}"));
+            httpClientMock.Setup(httpClient => httpClient
+              .Send(It.Is<IRequest>(request =>
+                request.Method == "GET" &&
+                request.Uri == "http://api.example.com/path" &&
+                request.Headers["accept"] == "application/vnd.aplazame.sandbox.v1+json" &&
+                request.Headers["authorization"] == "Bearer fooAccessToken"
+              )))
+              .Returns(new Response(200, "{\"foo\": \"value\"}"))
+            ;
 
             Client client = new Client(
                 "http://api.example.com",
@@ -23,7 +31,7 @@ namespace Aplazame.Api
                 httpClientMock.Object
             );
 
-            dynamic response = client.Request("get", "uri");
+            dynamic response = client.Request("get", "/path");
 
             Assert.AreEqual("value", response.foo.ToString());
         }
