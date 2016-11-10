@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Net;
+using System.Reflection;
 
 namespace Aplazame.Http
 {
@@ -12,7 +13,22 @@ namespace Aplazame.Http
 
             HttpWebRequest hr = (HttpWebRequest)WebRequest.Create(request.Uri);
             hr.Method = request.Method;
-            hr.Headers = request.Headers;
+
+            Type type = typeof(HttpWebRequest);
+            foreach (String headerName in request.Headers.AllKeys)
+            {
+                var headerValue = request.Headers[headerName];
+                if (WebHeaderCollection.IsRestricted(headerName))
+                {
+                    string propertyName = headerName.Replace("-", "");
+                    PropertyInfo headerProperty = type.GetProperty(propertyName);
+                    headerProperty.SetValue(hr, headerValue);
+                }
+                else
+                {
+                    hr.Headers.Add(headerName, headerValue);
+                }
+            }
 
             string body = request.Body;
             if (0 != body.Length)

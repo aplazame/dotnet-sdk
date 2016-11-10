@@ -24,8 +24,10 @@ namespace Aplazame.Http
                 dynamic responseBody = JsonConvert.DeserializeObject(response.Body);
 
                 Assert.AreEqual(request.Uri, responseBody["url"].ToString());
-                Assert.IsNotNull(responseBody["headers"]["X-Foo"]);
-                Assert.AreEqual("fooValue", responseBody["headers"]["X-Foo"].ToString());
+                AssertHeaderIsEqual(responseBody["headers"], "Accept", "foo");
+                AssertHeaderIsEqual(responseBody["headers"], "Authorization", "bar");
+                AssertHeaderIsEqual(responseBody["headers"], "User-Agent", "bas");
+                AssertHeaderIsEqual(responseBody["headers"], "X-Foo", "fooX");
                 string body = request.Body;
                 if (0 != body.Length)
                 {
@@ -75,8 +77,12 @@ namespace Aplazame.Http
 
         public Dictionary<string, object> RequestProvider()
         {
-            WebHeaderCollection headers = new WebHeaderCollection() {
-                { "X-Foo", "fooValue" },
+            WebHeaderCollection headers = new WebHeaderCollection
+            {
+                { "Accept", "foo" },
+                { "Authorization", "bar" },
+                { "User-Agent", "bas" },
+                { "X-Foo", "fooX" }
             };
             string testBody = "testBody";
 
@@ -110,5 +116,11 @@ namespace Aplazame.Http
         }
 
         protected abstract IClient CreateClient();
+
+        private void AssertHeaderIsEqual(dynamic headers, string headerName, string headerValue )
+        {
+            Assert.IsNotNull(headers[headerName]);
+            Assert.AreEqual(headerValue, headers[headerName].ToString());
+        }
     }
 }
