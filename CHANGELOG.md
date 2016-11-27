@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## [0.2.0] - 2016-11-27
 ### Added
 - [Api] Add `HttpStatusCode` to `ApiClientException` and `ApiServerException`. This method returns the response HTTP status code.
 - [Serializer] New component focused only in assist the conversion of C# types to JSON compatible types.
@@ -72,7 +72,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - [BusinessModels]
 - [Http]
 
-[Unreleased]: https://github.com/aplazame/dotnet-sdk/compare/v0.1.3...HEAD
+[0.2.0]: https://github.com/aplazame/dotnet-sdk/compare/v0.1.3...v0.2.0
 [0.1.3]: https://github.com/aplazame/dotnet-sdk/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/aplazame/dotnet-sdk/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/aplazame/dotnet-sdk/compare/v0.1.0...v0.1.1
