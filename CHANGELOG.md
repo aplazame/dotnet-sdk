@@ -6,12 +6,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+- [Serializer] New component focused only in assist the conversion of C# types to JSON compatible types.
 
 ### Changed
+- [BusinessModel] This component has been replaced by [Serializer]
 
 ### Deprecated
 
 ### Removed
+- [BusinessModel] This component has been replaced by [Serializer]
 
 ### Fixed
 

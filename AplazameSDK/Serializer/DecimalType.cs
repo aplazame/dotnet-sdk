@@ -1,6 +1,6 @@
-namespace Aplazame.BusinessModel
+namespace Aplazame.Serializer
 {
-    public class Decimal
+    public class DecimalType
     {
         public static int FromDouble(double value)
         {

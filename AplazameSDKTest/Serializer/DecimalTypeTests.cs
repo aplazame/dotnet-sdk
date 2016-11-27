@@ -1,15 +1,14 @@
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Aplazame.BusinessModel
+namespace Aplazame.Serializer
 {
     [TestClass]
-    public class DecimalTests
+    public class DecimalTypeTests
     {
         [TestMethod]
         public void Conversion()
         {
-
             foreach (KeyValuePair<string, object> dataSet in ValuesProvider())
             {
                 dynamic dataSetValue = dataSet.Value;
@@ -17,8 +16,8 @@ namespace Aplazame.BusinessModel
                 double doubleValue = dataSetValue.doubleValue;
                 int intValue = dataSetValue.intValue;
                 
-                Assert.AreEqual(intValue, Decimal.FromDouble(doubleValue), "int value not match");
-                Assert.AreEqual(doubleValue, Decimal.ToDouble(intValue), "double value not match");
+                Assert.AreEqual(intValue, DecimalType.FromDouble(doubleValue), "int value not match");
+                Assert.AreEqual(doubleValue, DecimalType.ToDouble(intValue), "double value not match");
             }
         }
 

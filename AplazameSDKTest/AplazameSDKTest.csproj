@@ -69,14 +69,9 @@
   <ItemGroup>
     <Compile Include="Api\ApiRequestTests.cs" />
     <Compile Include="Api\ClientTests.cs" />
-    <Compile Include="BusinessModel\AddressTests.cs" />
-    <Compile Include="BusinessModel\ArticleTests.cs" />
-    <Compile Include="BusinessModel\CheckoutTests.cs" />
-    <Compile Include="BusinessModel\CustomerTests.cs" />
-    <Compile Include="BusinessModel\DecimalTests.cs" />
-    <Compile Include="BusinessModel\MerchantTests.cs" />
-    <Compile Include="BusinessModel\OrderTests.cs" />
-    <Compile Include="BusinessModel\ShippingInfoTests.cs" />
+    <Compile Include="Serializer\JsonSerializerTests.cs" />
+    <Compile Include="Serializer\DateTypeTests.cs" />
+    <Compile Include="Serializer\DecimalTypeTests.cs" />
     <Compile Include="Http\AbstractClientTestCase.cs" />
     <Compile Include="Http\HttpWebRequestClientTests.cs" />
   </ItemGroup>

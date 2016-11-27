@@ -15,65 +15,61 @@ This SDK provides a tree of objects for guide you about to craft the checkout mo
 /*
  * Merchant model
  */
-Aplazame.BusinessModel.Merchant merchant = new Aplazame.BusinessModel.Merchant(
-	confirmation_url: "/confirm", // url that the JS client sent to confirming the order.
-	cancel_url: "/cancel",        // url that the customer is sent to if there is an error in the checkout.
-	success_url: "/success"       // url that the customer is sent to after confirming their order.
-);
-merchant.checkout_url = "/checkout"; // url that the customer is sent to if the customer chooses to back to the e-commerce, by default is /.
+dynamic merchant = new {};
+merchant.confirmation_url = "/confirm"; // url that the JS client sent to confirming the order.
+merchant.cancel_url = "/cancel";        // url that the customer is sent to if there is an error in the checkout.
+merchant.success_url = "/success";      // url that the customer is sent to after confirming their order.
+merchant.checkout_url = "/checkout";    // url that the customer is sent to if the customer chooses to back to the e-commerce, by default is /.
 
 
 /*
  * Article model
  */
-Aplazame.BusinessModel.Article article = new Aplazame.BusinessModel.Article(
-	id: "89793238462643383279",                               // The article ID.
-	name: "Reloj en oro blanco de 18 quilates y diamantes",   // Article name.
-	url: "http://shop.example.com/product.html",              // Article url.
-	image_url: "http://shop.example.com/product_image.png",   // Article image url.
-	quantity: 2,                                              // Article quantity.
-	price: Aplazame.BusinessModel.Decimal.FromDouble(4020.00) // Article price (tax is not included). (4,020.00 €)
-);
-article.description = "Movimiento de cuarzo de alta precisión";          // Article description.
-article.tax_rate = Aplazame.BusinessModel.Decimal.FromDouble(21.00);     // Article tax rate. (21.00%)
-article.discount = Aplazame.BusinessModel.Decimal.FromDouble(5.00);      // The discount amount of the article. (5.00 €)
-article.discount_rate = Aplazame.BusinessModel.Decimal.FromDouble(2.00); // The rate discount of the article. (2.00 %)
+dynamic article = new {};
+article.id = "89793238462643383279";                                      // The article ID.
+article.name = "Reloj en oro blanco de 18 quilates y diamantes";          // Article name.
+article.url = "http://shop.example.com/product.html";                     // Article url.
+article.image_url = "http://shop.example.com/product_image.png";          // Article image url.
+article.quantity = 2;                                                     // Article quantity.
+article.price = Aplazame.Serializer.DecimalType.FromDouble(4020.00);      // Article price (tax is not included). (4,020.00 €)
+article.description = "Movimiento de cuarzo de alta precisión";           // Article description.
+article.tax_rate = Aplazame.Serializer.DecimalType.FromDouble(21.00);     // Article tax rate. (21.00%)
+article.discount = Aplazame.Serializer.DecimalType.FromDouble(5.00);      // The discount amount of the article. (5.00 €)
+article.discount_rate = Aplazame.Serializer.DecimalType.FromDouble(2.00); // The rate discount of the article. (2.00 %)
 
 // ... rest of articles in the shopping cart.
 
 /*
  * Articles collection
  */
-Aplazame.BusinessModel.Article[] articles = new Aplazame.BusinessModel.Article[] { article };
+dynamic[] articles = new dynamic[] { article, ... };
 
 
 /*
  * Order model
  */
-Aplazame.BusinessModel.Order order = new Aplazame.BusinessModel.Order(
-	id: "28475648233786783165",                                       // Your order ID.
-	currency: "EUR",                                                  // Currency code of the order.
-	tax_rate: Aplazame.BusinessModel.Decimal.FromDouble(21.00),       // Order tax rate. (21.00%)
-	total_amount: Aplazame.BusinessModel.Decimal.FromDouble(4620.00), // Order total amount. (4,620.00 €)
-	articles: articles                                                // Articles in cart.
-);
-order.discount = Aplazame.BusinessModel.Decimal.FromDouble(160.00);         // The discount amount of the order. (160.00 €)
-order.discount_rate = Aplazame.BusinessModel.Decimal.FromDouble(2.00);      // The rate discount of the order. (2.00 %)
-order.cart_discount = Aplazame.BusinessModel.Decimal.FromDouble(0.50);      // The discount amount of the cart. (0.50 €)
-order.cart_discount_rate = Aplazame.BusinessModel.Decimal.FromDouble(3.00); // The rate discount of the cart. (3.00 %)
+dynamic order = new {};
+order.id = "28475648233786783165";                                           // Your order ID.
+order.currency = "EUR";                                                      // Currency code of the order.
+order.tax_rate = Aplazame.Serializer.DecimalType.FromDouble(21.00);          // Order tax rate. (21.00%)
+order.total_amount = Aplazame.Serializer.DecimalType.FromDouble(4620.00);    // Order total amount. (4,620.00 €)
+order.articles = articles;                                                   // Articles in cart.
+order.discount = Aplazame.Serializer.DecimalType.FromDouble(160.00);         // The discount amount of the order. (160.00 €)
+order.discount_rate = Aplazame.Serializer.DecimalType.FromDouble(2.00);      // The rate discount of the order. (2.00 %)
+order.cart_discount = Aplazame.Serializer.DecimalType.FromDouble(0.50);      // The discount amount of the cart. (0.50 €)
+order.cart_discount_rate = Aplazame.Serializer.DecimalType.FromDouble(3.00); // The rate discount of the cart. (3.00 %)
 
 /*
  * Customer address model
  */
-Aplazame.BusinessModel.Address customerAddress = new Aplazame.BusinessModel.Address(
-	"John",                 // Address first name.
-	"Coltrane",             // Address last name.
-	"Plaza del Angel nº10", // Address street.
-	"Madrid",               // Address city.
-	"Madrid",               // Address state.
-	"ES",                   // Address country code.
-	"28012"                 // Address postcode.
-);
+dynamic customerAddress = new {};
+customerAddress.first_name = "John";                              // Address first name.
+customerAddress.last_name = "Coltrane";                           // Address last name.
+customerAddress.street = "Plaza del Angel nº10";                  // Address street.
+customerAddress.city = "Madrid";                                  // Address city.
+customerAddress.state = "Madrid";                                 // Address state.
+customerAddress.country = "ES";                                   // Address country code.
+customerAddress.postcode = "28012";                               // Address postcode.
 customerAddress.phone = "616123456";                              // Address phone number.
 customerAddress.alt_phone = "+34917909930";                       // Address alternative phone.
 customerAddress.address_addition = "Cerca de la plaza Santa Ana"; // Address addition.
@@ -81,69 +77,65 @@ customerAddress.address_addition = "Cerca de la plaza Santa Ana"; // Address add
 /*
  * Customer model
  */
-Aplazame.BusinessModel.Customer customer = new Aplazame.BusinessModel.Customer(
-	id: "1618",                                            // Customer ID.
-	email: "dev@aplazame.com",                             // The customer email.
-	type: Aplazame.BusinessModel.Customer.TYPE_EXISTING,   // Customer type. Other options are: TYPE_GUEST and TYPE_NEW.
-	gender: Aplazame.BusinessModel.Customer.GENDER_UNKNOWN // Customer gender. Other options are: GENDER_MALE, GENDER_FEMALE and GENDER_NOT_APPLICABLE.
-);
-customer.first_name = "John";                                       // Customer first name.
-customer.last_name = "Coltrane";                                    // Customer last name.
-customer.birthday = DateTime.Parse("1990-08-21T13:56:45+01:00");    // Customer birthday.
-customer.language = "es";                                           // Customer language preferences.
-customer.date_joined = DateTime.Parse("2014-08-21T13:56:45+01:00"); // A datetime designating when the customer account was created.
-customer.last_login = DateTime.Parse("2014-08-27T19:57:56+01:00");  // A datetime of the customer last login.
-customer.address = customerAddress;                                 // Customer address.
+dynamic customer = new {};
+customer.id = "1618";                                                                                  // Customer ID.
+customer.email = "dev@aplazame.com";                                                                   // The customer email.
+customer.type = 'e';                                                                                   // Customer type, the choices are g:guest, n:new, e:existing.
+customer.gender = 0;                                                                                   // Customer gender, the choices are 0: not known, 1: male, 2:female, 3: not applicable.
+customer.first_name = "John";                                                                          // Customer first name.
+customer.last_name = "Coltrane";                                                                       // Customer last name.
+customer.birthday = Aplazame.Serializer.DateType.FromDateTime(new DateTime("1990-08-21 13:56:45"));    // Customer birthday.
+customer.language = "es";                                                                              // Customer language preferences.
+customer.date_joined = Aplazame.Serializer.DateType.FromDateTime(new DateTime("2014-08-21 13:56:45")); // A datetime designating when the customer account was created.
+customer.last_login = Aplazame.Serializer.DateType.FromDateTime(new DateTime("2014-08-27 19:57:56"));  // A datetime of the customer last login.
+customer.address = customerAddress;                                                                    // Customer address.
 
 
 /*
  * Billing address model
  */
-Aplazame.BusinessModel.Address billingAddress = new Aplazame.BusinessModel.Address(
-   first_name: "Bill",                // Billing first name.
-   last_name: "Evans",                // Billing last name.
-   street: "Calle de Las Huertas 22", // Billing street.
-   city: "Madrid",                    // Billing city.
-   state: "Madrid",                   // Billing state.
-   country: "ES",                     // Billing country code.
-   postcode: "28014"                  // Billing postcode.
-);
-billingAddress.phone = "+34914298407";                    // Billing phone number.
-billingAddress.alt_phone = null;                          // Billing alternative phone.
-billingAddress.address_addition = "Cerca de la pizzería"; // Billing address addition.
+dynamic billingAddress = new {};
+billingAddress.first_name = "Bill";                        // Billing first name.
+billingAddress.last_name = "Evans";                        // Billing last name.
+billingAddress.street = "Calle de Las Huertas 22";         // Billing street.
+billingAddress.city = "Madrid";                            // Billing city.
+billingAddress.state = "Madrid";                           // Billing state.
+billingAddress.country = "ES";                             // Billing country code.
+billingAddress.postcode = "28014";                         // Billing postcode.
+billingAddress.phone = "+34914298407";                     // Billing phone number.
+billingAddress.alt_phone = null;                           // Billing alternative phone.
+billingAddress.address_addition =  "Cerca de la pizzería"; // Billing address addition.
 
 
 /*
  * Shipping info model
  */
-Aplazame.BusinessModel.ShippingInfo shippingInfo = new Aplazame.BusinessModel.ShippingInfo(
-   first_name: "Django",                                  // Shipping first name.
-   last_name: "Reinhard",                                 // Shipping last name.
-   street: "Plaza del Angel nº10",                        // Shipping street.
-   city: "Madrid",                                        // Shipping city.
-   state: "Madrid",                                       // Shipping state.
-   country: "ES",                                         // Shipping country code.
-   postcode: "28012",                                     // Shipping postcode.
-   name: "Planet Express",                                // Shipping name.
-   price: Aplazame.BusinessModel.Decimal.FromDouble(5.00) // Shipping price (tax is not included). (5.00 €)
-);
-shippingInfo.phone = "616123456";                                             // Shipping phone number.
-shippingInfo.alt_phone = "+34917909930";                                      // Shipping alternative phone.
-shippingInfo.address_addition = "Cerca de la plaza Santa Ana";                // Shipping address addition.
-shippingInfo.tax_rate = Aplazame.BusinessModel.Decimal.FromDouble(21.00);     // Shipping tax rate. (21.00%)
-shippingInfo.discount = Aplazame.BusinessModel.Decimal.FromDouble(1.00);      // The discount amount of the shipping. (1.00 €)
-shippingInfo.discount_rate = Aplazame.BusinessModel.Decimal.FromDouble(2.00); // The rate discount of the shipping. (2.00 %)
+dynamic shippingInfo = new {};
+shippingInfo.first_name = "Django";                                            // Shipping first name.
+shippingInfo.last_name = "Reinhard";                                           // Shipping last name.
+shippingInfo.street = "Plaza del Angel nº10";                                  // Shipping street.
+shippingInfo.city = "Madrid";                                                  // Shipping city.
+shippingInfo.state = "Madrid";                                                 // Shipping state.
+shippingInfo.country = "ES";                                                   // Shipping country code.
+shippingInfo.postcode = "28012";                                               // Shipping postcode.
+shippingInfo.name = "Planet Express";                                          // Shipping name.
+shippingInfo.price = Aplazame.Serializer.DecimalType.FromDouble(5.00);         // Shipping price (tax is not included). (5.00 €)
+shippingInfo.phone = "616123456";                                              // Shipping phone number.
+shippingInfo.alt_phone = "+34917909930";                                       // Shipping alternative phone.
+shippingInfo.address_addition = "Cerca de la plaza Santa Ana";                 // Shipping address addition.
+shippingInfo.tax_rate = Aplazame.Serializer.DecimalType.FromDouble(21.00);     // Shipping tax rate. (21.00%)
+shippingInfo.discount = Aplazame.Serializer.DecimalType.FromDouble(1.00);      // The discount amount of the shipping. (1.00 €)
+shippingInfo.discount_rate = Aplazame.Serializer.DecimalType.FromDouble(2.00); // The rate discount of the shipping. (2.00 %)
 
 
 /*
  * Checkout model
  */
-Aplazame.BusinessModel.Checkout checkout = new Aplazame.BusinessModel.Checkout(
-	toc: true,
-	merchant: merchant,
-	order: order,
-	customer: customer
-);
+dynamic checkout = new {};
+checkout.toc = true;
+checkout.merchant = merchant;
+checkout.order = order;
+checkout.customer = customer;
 checkout.billing = billingAddress;
 checkout.shipping = shippingInfo;
 ```
@@ -151,7 +143,7 @@ checkout.shipping = shippingInfo;
 In your view you will need to put an snippet similar to this one.
 ```asp
 <script>
-  aplazame.checkout( <%= JsonConvert.SerializeObject(checkout, Formatting.Indented, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }); %> );
+  aplazame.checkout( <%= Aplazame.Serializer.JsonSerializer.AsJsonString(checkout); %> );
 </script>
 ```
 

@@ -53,14 +53,9 @@
     <Compile Include="Api\ApiServerException.cs" />
     <Compile Include="Api\Client.cs" />
     <Compile Include="Api\DeserializeException.cs" />
-    <Compile Include="BusinessModel\Address.cs" />
-    <Compile Include="BusinessModel\Article.cs" />
-    <Compile Include="BusinessModel\Checkout.cs" />
-    <Compile Include="BusinessModel\Customer.cs" />
-    <Compile Include="BusinessModel\Decimal.cs" />
-    <Compile Include="BusinessModel\Merchant.cs" />
-    <Compile Include="BusinessModel\Order.cs" />
-    <Compile Include="BusinessModel\ShippingInfo.cs" />
+    <Compile Include="Serializer\JsonSerializer.cs" />
+    <Compile Include="Serializer\DateType.cs" />
+    <Compile Include="Serializer\DecimalType.cs" />
     <Compile Include="Http\HttpWebRequestClient.cs" />
     <Compile Include="Http\IClient.cs" />
     <Compile Include="Http\IRequest.cs" />
