@@ -14,21 +14,29 @@ namespace Aplazame.Api
             if (null == response) throw new ArgumentNullException(nameof(response));
             string responseBody = response.Body;
 
-            if (0 == responseBody.Length) return new ApiClientException(response.ReasonPhrase, response.StatusCode.ToString(), new object());
+            if (0 == responseBody.Length) return new ApiClientException(response.StatusCode, response.ReasonPhrase);
 
             dynamic decodedBody = JsonConvert.DeserializeObject(responseBody);
             dynamic error = decodedBody.error;
-            if (null == error) return new ApiClientException(response.ReasonPhrase, response.StatusCode.ToString(), new object());
+            if (null == error) return new ApiClientException(response.StatusCode, response.ReasonPhrase);
             
-            return new ApiClientException(error.type.ToString(), error.message.ToString(), error);
+            return new ApiClientException(response.StatusCode, error.type.ToString(), error.message.ToString(), error);
         }
+
+        public int HttpStatusCode { get; }
 
         public string ErrorType { get; }
 
         public object Error { get; }
 
-        public ApiClientException(string errorType, string message, object error) : base(message)
+        public ApiClientException(int httpStatusCode, string errorType) : this(httpStatusCode, errorType, "", new object())
         {
+
+        }
+
+        public ApiClientException(int httpStatusCode, string errorType, string message, object error) : base(message)
+        {
+            HttpStatusCode = httpStatusCode;
             ErrorType = errorType;
             Error = error;
         }

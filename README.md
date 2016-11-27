@@ -178,6 +178,7 @@ catch (Aplazame.Api.ApiServerException apiServerException)
 {
 	// Our server has crashed. We promise to fix it ASAP.
 
+	Console.WriteLine("HTTP Status code " + apiServerException.HttpStatusCode);
 	Console.WriteLine("Error type " + apiServerException.ErrorType);
 	Console.WriteLine("Error message " + apiServerException.Message);
 
@@ -187,6 +188,7 @@ catch (Aplazame.Api.ApiServerException apiServerException)
 catch (Aplazame.Api.ApiClientException apiClientException) {
 	// Your client has sent an invalid request. Please check your code.
 
+	Console.WriteLine("HTTP Status code " + apiClientException.HttpStatusCode);
 	Console.WriteLine("Error type " + apiClientException.ErrorType);
 	Console.WriteLine("Error message " + apiClientException.Message);
 

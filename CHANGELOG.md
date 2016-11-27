@@ -6,9 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+- [Api] Add `HttpStatusCode` to `ApiClientException` and `ApiServerException`. This method returns the response HTTP status code.
 - [Serializer] New component focused only in assist the conversion of C# types to JSON compatible types.
 
 ### Changed
+- [Api] Change in `ApiClientException` and `ApiServerException` constructor signature.
 - [BusinessModel] This component has been replaced by [Serializer]
 
 ### Deprecated
