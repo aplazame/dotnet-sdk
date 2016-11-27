@@ -6,7 +6,7 @@ namespace Aplazame.Api
 {
     public class ApiRequest : Request
     {
-        public const string SdkVersion = "0.2.0";
+        public const string SdkVersion = "0.2.1";
         public const string FormatJson = "json";
         public const string FormatXml = "xml";
         public const string FormatYaml = "yaml";
