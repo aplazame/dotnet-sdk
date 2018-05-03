@@ -5,7 +5,7 @@
     <version>$version$</version>
     <authors>$author$</authors>
     <owners>$author$</owners>
-	<licenseUrl>https://github.com/Aplazame/dotnet-sdk/blob/master/LICENSE.md</licenseUrl>
+	<licenseUrl>https://github.com/Aplazame/dotnet-sdk/blob/master/LICENSE</licenseUrl>
 	<projectUrl>https://github.com/Aplazame/dotnet-sdk</projectUrl>
 	<iconUrl>https://aplazame.com/landing-assets/images/favicon-57.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
