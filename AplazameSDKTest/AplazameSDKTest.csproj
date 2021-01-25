@@ -69,7 +69,6 @@
   <ItemGroup>
     <Compile Include="Api\ApiRequestTests.cs" />
     <Compile Include="Api\ClientTests.cs" />
-    <Compile Include="Serializer\JsonSerializerTests.cs" />
     <Compile Include="Serializer\DateTypeTests.cs" />
     <Compile Include="Serializer\DecimalTypeTests.cs" />
     <Compile Include="Http\AbstractClientTestCase.cs" />
