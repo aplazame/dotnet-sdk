@@ -177,7 +177,7 @@ catch (Aplazame.Api.ApiClientException apiClientException) {
 }
 
 Console.WriteLine(result);
-string aplazameCheckoutId = result;
+string aplazameCheckoutId = result['id'];
 ```
 
 In your view you will need to put an snippet similar to this one.
