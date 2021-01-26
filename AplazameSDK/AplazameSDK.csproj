@@ -53,7 +53,6 @@
     <Compile Include="Api\ApiServerException.cs" />
     <Compile Include="Api\Client.cs" />
     <Compile Include="Api\DeserializeException.cs" />
-    <Compile Include="Serializer\JsonSerializer.cs" />
     <Compile Include="Serializer\DateType.cs" />
     <Compile Include="Serializer\DecimalType.cs" />
     <Compile Include="Http\HttpWebRequestClient.cs" />

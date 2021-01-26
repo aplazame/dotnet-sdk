@@ -126,8 +126,6 @@ checkout.order = order;
 checkout.customer = customer;
 checkout.billing = billingAddress;
 checkout.shipping = shippingInfo;
-
-object checkoutPayload = Aplazame.Serializer.JsonSerializer.AsJsonString(checkout);
 ```
 
 ### API Calls
@@ -143,7 +141,7 @@ Aplazame.Api.Client aplazameApiClient = new Aplazame.Api.Client(apiBaseUri, envi
 dynamic result;
 try
 {
-    result = aplazameApiClient.Post("/checkout", checkoutPayload);
+    result = aplazameApiClient.Post("/checkout", checkout);
 }
 catch (Aplazame.Api.ApiCommunicationException apiCommunicationException)
 {
@@ -179,7 +177,7 @@ catch (Aplazame.Api.ApiClientException apiClientException) {
 }
 
 Console.WriteLine(result);
-string aplazameCheckoutId = result;
+string aplazameCheckoutId = result['id'];
 ```
 
 In your view you will need to put an snippet similar to this one.
