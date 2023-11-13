@@ -26,42 +26,47 @@ namespace Aplazame.Api
         }
 
         /// <param name="useSandbox"></param>
+        /// <param name="apiVersion"></param>
         /// <param name="accessToken">The Access Token of the request (Public API key or Private API key)</param>
         /// <param name="method">The HTTP method of the request.</param>
         /// <param name="uri">The URI of the request.</param>
         public ApiRequest(
             bool useSandbox,
+            int apiVersion,
             string accessToken,
             string method,
             string uri
-        ) : this (useSandbox, accessToken, method, uri, null)
+        ) : this (useSandbox, apiVersion, accessToken, method, uri, null)
         {
         }
 
         /// <param name="useSandbox"></param>
+        /// <param name="apiVersion"></param>
         /// <param name="accessToken">The Access Token of the request (Public API key or Private API key)</param>
         /// <param name="method">The HTTP method of the request.</param>
         /// <param name="uri">The URI of the request.</param>
         /// <param name="data">data The data of the request.</param>
         public ApiRequest(
             bool useSandbox,
+            int apiVersion,
             string accessToken,
             string method,
             string uri,
             object data
-        ) : base(method, uri, PrepareHeaders(useSandbox, accessToken, data), SerializeData(data))
+        ) : base(method, uri, PrepareHeaders(useSandbox, apiVersion, accessToken, data), SerializeData(data))
         {
         }
 
         private static WebHeaderCollection PrepareHeaders(
             bool useSandbox,
+            int apiVersion,
             string accessToken,
             object data = null
         )
         {
             WebHeaderCollection headers = new WebHeaderCollection
             {
-                { "Accept", CreateAcceptHeader(useSandbox, 1, FormatJson) },
+                { "Accept", CreateAcceptHeader(useSandbox, apiVersion, FormatJson) },
                 { "Authorization", CreateAuthorizationHeader(accessToken) },
                 { "User-Agent", $"Aplazame/{SdkVersion}, CSharp/{typeof(string).Assembly.ImageRuntimeVersion}" }
             };
