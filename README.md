@@ -7,7 +7,7 @@ used by online buyers to receive funding for their purchases.
 
 ### Checkout
 
-This SDK provides a tree of objects for guide you about to craft the checkout model described in https://aplazame.com/integraciones/api/checkout-creation/.
+This SDK provides a tree of objects for guide you about to craft the checkout model described in https://aplazame.dev/docs/api/checkout-creation/.
 
 ```cs
 /*
@@ -141,7 +141,7 @@ Aplazame.Api.Client aplazameApiClient = new Aplazame.Api.Client(apiBaseUri, envi
 dynamic result;
 try
 {
-    result = aplazameApiClient.Post("/checkout", checkout);
+    result = aplazameApiClient.Post("/checkout", checkout, 4);
 }
 catch (Aplazame.Api.ApiCommunicationException apiCommunicationException)
 {
@@ -190,4 +190,4 @@ In your view you will need to put an snippet similar to this one.
 
 ## Documentation
 
-Documentation is available at http://docs.aplazame.com.
+Documentation is available at https://aplazame.dev/.

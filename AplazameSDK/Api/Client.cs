@@ -123,14 +123,15 @@ namespace Aplazame.Api
         /// </summary>
         /// <param name="path">The path of the request</param>
         /// <param name="data">The data of the request.</param>
+        /// <param name="apiVersion"></param>
         /// <returns>The data of the response.</returns>
         /// <exception cref="ApiCommunicationException">If an I/O error occurs.</exception>
         /// <exception cref="DeserializeException">If response cannot be deserialized.</exception>
         /// <exception cref="ApiServerException">If server was not able to respond.</exception>
         /// <exception cref="ApiClientException">If request is invalid.</exception>
-        public object Post(string path, object data)
+        public object Post(string path, object data, int apiVersion = 1)
         {
-            return Request("POST", path, data);
+            return Request("POST", path, data, apiVersion);
         }
 
         /// <summary>
@@ -163,19 +164,20 @@ namespace Aplazame.Api
         /// <param name="method">The HTTP method of the request.</param>
         /// <param name="path">The path of the request</param>
         /// <param name="data">The data of the request.</param>
+        /// <param name="apiVersion"></param>
         /// <returns>The data of the response.</returns>
         /// <exception cref="ApiCommunicationException">If an I/O error occurs.</exception>
         /// <exception cref="DeserializeException">If response cannot be deserialized.</exception>
         /// <exception cref="ApiServerException">If server was not able to respond.</exception>
         /// <exception cref="ApiClientException">If request is invalid.</exception>
-        public dynamic Request(string method, string path, object data)
+        public dynamic Request(string method, string path, object data, int apiVersion = 1)
         {
             if (string.IsNullOrEmpty(method)) throw new ArgumentNullException(nameof(method));
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
 
             var uri = apiBaseUri + path;
 
-            var request = new ApiRequest(useSandbox, accessToken, method, uri, data);
+            var request = new ApiRequest(useSandbox, apiVersion, accessToken, method, uri, data);
             IResponse response;
             try
             {
