@@ -141,7 +141,7 @@ Aplazame.Api.Client aplazameApiClient = new Aplazame.Api.Client(apiBaseUri, envi
 dynamic result;
 try
 {
-    result = aplazameApiClient.Post("/checkout", checkout, 3);
+    result = aplazameApiClient.Post("/checkout", checkout, 4);
 }
 catch (Aplazame.Api.ApiCommunicationException apiCommunicationException)
 {
