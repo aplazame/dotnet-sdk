@@ -17,6 +17,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Security
 
+## [0.3.0] - 2024-06-26
+### Added
+- Example for checkout v4
+
+### Changed
+- Dynamic API version header
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
 
 ## [0.2.1] - 2016-11-27
 ### Added
